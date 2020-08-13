@@ -16,6 +16,17 @@ alpha = controlador.alpha;
 Tl = controlador.Tl;
 T = controlador.T;
 
+L = planta.L;
+R = planta.R
 % Implementar
 
+C = K*(Tl*s+1)/(s*(alpha*Tl*s+1));
+G = 1/(L*s+R);
+[NUM,DEN] = pade(T,2);
+A = NUM/DEN;
+
+Ga = C*G*A;
+Ga = minreal(Ga);
+Gf = feedback(Ga,1);
+Gf = minreal(Gf);
 end

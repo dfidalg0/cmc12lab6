@@ -2,10 +2,10 @@ function controlador = projetarControladorCorrenteAnalitico(requisitos, planta)
 % controlador = projetarControladorCorrenteAnalitico(requisitos, planta)
 % projeta o controlador de corrente atraves de um metodo analitico. A
 % struct requisitos eh:
-% requisitos.wb: requisito de banda passante.
-% requisitos.GM: requisito de margem de ganho.
-% requisitos.PM: requisito de margem de fase.
-% requisitos.fs: requisito de taxa de amostragem.
+wb = requisitos.wb;
+GM = requisitos.GM;
+PMmin = requisitos.PM;
+fs = requisitos.fs;
 % A struct planta contem os parametros da planta e pode ser obtida atraves
 % de planta = obterPlantaServoPosicao().
 % A saida da funcao eh a struct controlador:
@@ -17,5 +17,31 @@ function controlador = projetarControladorCorrenteAnalitico(requisitos, planta)
 controlador.T = 1.0 / requisitos.fs;
 
 % Implementar
+
+L = planta.L;
+R = planta.R;
+
+G = tf(1,[L R 0]);
+
+K = roots([1 2*L*wb^2 -L^2*wb^4-R^2*wb^2]);
+if K(1)>0
+    controlador.K = K(1);
+else
+    controlador.K = K(2);
+end
+
+w = roots([L^2 R^2 -controlador.K^2]);
+if w(1)>0
+    wcp = sqrt(w(1));
+else
+    wcp = sqrt(w(2));
+end
+
+PM = angle(evalfr(controlador.K*G,j*wcp))*180/pi + 180;
+
+phi = PMmin - PM;
+
+controlador.alpha = (1 - sind(phi))/(1 + sind(phi));
+controlador.Tl = 1/wcp/sqrt(controlador.alpha);
 
 end
