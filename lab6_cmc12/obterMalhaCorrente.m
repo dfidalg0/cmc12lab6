@@ -17,7 +17,7 @@ Tl = controlador.Tl;
 T = controlador.T;
 
 L = planta.L;
-R = planta.R
+R = planta.R;
 % Implementar
 
 C = K*(Tl*s+1)/(s*(alpha*Tl*s+1));

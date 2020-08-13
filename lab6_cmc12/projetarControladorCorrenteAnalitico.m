@@ -37,7 +37,7 @@ else
     wcp = sqrt(w(2));
 end
 
-PM = angle(evalfr(controlador.K*G,j*wcp))*180/pi + 180;
+PM = angle(evalfr(controlador.K*G,1j*wcp))*180/pi + 180;
 
 phi = PMmin - PM;
 

@@ -14,7 +14,19 @@ function controlador = projetarControladorCorrenteOtimizacao(requisitos, planta)
 % controlador.Tl: parametro Tl da compensacao lead.
 % controlador.T: periodo de amostragem do controlador de corrente.
 
-% Implementar
+controlador = projetarControladorCorrenteAnalitico( ...
+    requisitos, planta ...
+);
+
+J = @(x) custoControladorCorrente(requisitos, planta, x);
+
+p0 = [controlador.K, controlador.alpha, controlador.Tl];
+
+popt = fminsearch(J, p0);
+
+controlador.K = popt(1);
+controlador.alpha = popt(2);
+controlador.Tl = popt(3);
 
 end
 
@@ -35,8 +47,11 @@ controlador.alpha = parametros(2);
 controlador.Tl = parametros(3);
 controlador.T = 1.0 / requisitos.fs;
 
-% Implementar
+[Ga, Gf] = obterMalhaCorrente(controlador, planta);
 
-% J = ...
+wb = bandwidth(Gf);
+[~, PM] = margin(Ga);
+
+J = (wb - requisitos.wb)^2 + (PM - requisitos.PM)^2;
 
 end

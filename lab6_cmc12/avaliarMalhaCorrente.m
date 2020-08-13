@@ -15,20 +15,17 @@ function avaliarMalhaCorrente(controlador, planta)
 figure;
 step(Gf);
 grid on;
-print -dpng -r400 corrente_degrau.png % para usuarios de Word
-% print -depsc2 corrente_degrau.eps % para usuarios de LaTeX
+print -depsc2 -r400 corrente_degrau.eps % para usuarios de LaTeX
 
 figure;
 bode(Gf);
 title(sprintf('Bode Diagram\nBandwidth = %g rad/s', bandwidth(Gf)));
 grid on;
-print -dpng -r400 corrente_Gf.png % para usuarios de Word
-% print -depsc2 corrente_Gf.eps % para usuarios de LaTeX
+print -depsc2 -r400 corrente_Gf.eps % para usuarios de LaTeX
 
 figure;
 margin(Ga);
 grid on;
-print -dpng -r400 corrente_Ga.png % para usuarios de Word
-% print -depsc2 corrente_Ga.eps % para usuarios de LaTeX
+print -depsc2 -r400 corrente_Ga.eps % para usuarios de LaTeX
 
 end
