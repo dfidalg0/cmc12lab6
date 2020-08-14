@@ -21,20 +21,17 @@ function avaliarMalhaPosicao(controladorPosicao, controladorCorrente, planta)
 figure;
 step(Gf);
 grid on;
-print -dpng -r400 posicao_degrau.png % para usuarios de Word
-% print -depsc2 posicao_degrau.eps % para usuarios de LaTeX
+print -depsc2 -r400 posicao_degrau.eps % para usuarios de LaTeX
 
 figure;
 bode(Gf);
 title(sprintf('Bode Diagram\nBandwidth = %g rad/s', bandwidth(Gf)));
 grid on;
-print -dpng -r400 posicao_Gf.png % para usuarios de Word
-% print -depsc2 posicao_Gf.eps % para usuarios de LaTeX
+print -depsc2 -r400 posicao_Gf.eps % para usuarios de LaTeX
 
 figure;
 margin(Ga);
 grid on;
-print -dpng -r400 posicao_Ga.png % para usuarios de Word
-% print -depsc2 posicao_Ga.eps % para usuarios de LaTeX
+print -depsc2 -r400 posicao_Ga.eps % para usuarios de LaTeX
 
 end
