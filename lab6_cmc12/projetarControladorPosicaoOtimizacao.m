@@ -23,6 +23,15 @@ controlador = projetarControladorPosicaoAnalitico(requisitos, planta);
 
 % Implementar
 
+J = @(x) custoControladorPosicao(requisitos, controladorCorrente, planta, x);
+
+p0 = [controlador.Kp, controlador.Kd];
+
+popt = fminsearch(J, p0);
+
+controlador.Kp = popt(1);
+controlador.Kd = popt(2);
+
 end
 
 function J = custoControladorPosicao(requisitos, controladorCorrente, planta, parametros)
@@ -34,6 +43,11 @@ controladorPosicao.T = 1.0 / requisitos.fs;
 
 % Implementar
 
-% J = ...
+[Ga, Gf] = obterMalhaPosicao(controladorPosicao, controladorCorrente, planta);
+
+wb = bandwidth(Gf);
+[~, PM] = margin(Ga);
+
+J = (requisitos.wb - wb)^2 + (requisitos.PM - PM)^2;
 
 end
