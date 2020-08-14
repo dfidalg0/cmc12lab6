@@ -39,13 +39,13 @@ eta = planta.eta;
 Cp = Kp + Kd*s*a/(s+a);
 Cc = K*(Tl*s+1)/(s*(alpha*Tl*s+1));
 
-[NUMp,DENp] = pade(Tp,2);
+[NUMp,DENp] = pade(Tp/2,2);
 Ap = tf(NUMp,DENp);
 
 [NUMc,DENc] = pade(Tc/2,2);
 Ac = tf(NUMc,DENc);
 
-Ga = Cp*Ap*Cc*Ac*N*eta*Kt/(s*((Jeq*s+Beq)*(L*s+R+Cc*Ac)+N^2*Kt^2*eta));
+Ga = Cp*Ap*Cc*(NUMc/DENc)*N*eta*Kt/(s*((Jeq*s+Beq)*(L*s+R+Cc*(NUMc/DENc))+N^2*Kt^2*eta));
 Gf = feedback(Ga,1);
 
 end
