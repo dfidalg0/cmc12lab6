@@ -36,8 +36,8 @@ xlabel('Tempo (s)', 'FontSize', 14);
 ylabel('\theta_l (rad)', 'FontSize', 14);
 set(gca, 'FontSize', 14);
 grid on;
-print -dpng -r400 degrau_thetal.png % para usuarios de Word
-% print -depsc2 degrau_thetal.eps % para usuarios de LaTeX
+% print -dpng -r400 degrau_thetal.png % para usuarios de Word
+print -depsc2 degrau_thetal.eps % para usuarios de LaTeX
 
 figure;
 plot(out.thetam.time, out.thetam.signals.values, 'LineWidth', 2);
@@ -45,8 +45,8 @@ xlabel('Tempo (s)', 'FontSize', 14);
 ylabel('\theta_m (rad)', 'FontSize', 14);
 set(gca, 'FontSize', 14);
 grid on;
-print -dpng -r400 degrau_thetam.png % para usuarios de Word
-% print -depsc2 degrau_thetam.eps % para usuarios de LaTeX
+% print -dpng -r400 degrau_thetam.png % para usuarios de Word
+print -depsc2 degrau_thetam.eps % para usuarios de LaTeX
 
 figure;
 plot(out.wl.time, out.wl.signals.values, 'LineWidth', 2);
@@ -54,8 +54,8 @@ xlabel('Tempo (s)', 'FontSize', 14);
 ylabel('\omega_l (rad/s)', 'FontSize', 14);
 set(gca, 'FontSize', 14);
 grid on;
-print -dpng -r400 degrau_wl.png % para usuarios de Word
-% print -depsc2 degrau_wl.eps % para usuarios de LaTeX
+% print -dpng -r400 degrau_wl.png % para usuarios de Word
+print -depsc2 degrau_wl.eps % para usuarios de LaTeX
 
 figure;
 plot(out.ic.time, out.ic.signals.values, 'LineWidth', 2);
@@ -63,8 +63,8 @@ xlabel('Tempo (s)', 'FontSize', 14);
 ylabel('i_c (A)', 'FontSize', 14);
 set(gca, 'FontSize', 14);
 grid on;
-print -dpng -r400 degrau_ic.png % para usuarios de Word
-% print -depsc2 degrau_ic.eps % para usuarios de LaTeX
+% print -dpng -r400 degrau_ic.png % para usuarios de Word
+print -depsc2 degrau_ic.eps % para usuarios de LaTeX
 
 figure;
 plot(out.i.time, out.i.signals.values, 'LineWidth', 2);
@@ -72,8 +72,8 @@ xlabel('Tempo (s)', 'FontSize', 14);
 ylabel('i (A)', 'FontSize', 14);
 set(gca, 'FontSize', 14);
 grid on;
-print -dpng -r400 degrau_i.png % para usuarios de Word
-% print -depsc2 degrau_i.eps % para usuarios de LaTeX
+% print -dpng -r400 degrau_i.png % para usuarios de Word
+print -depsc2 degrau_i.eps % para usuarios de LaTeX
 
 figure;
 plot(out.Vc.time, out.Vc.signals.values, 'LineWidth', 2);
@@ -81,8 +81,8 @@ xlabel('Tempo (s)', 'FontSize', 14);
 ylabel('V_c (V)', 'FontSize', 14);
 set(gca, 'FontSize', 14);
 grid on;
-print -dpng -r400 degrau_Vc.png % para usuarios de Word
-% print -depsc2 degrau_Vc.eps % para usuarios de LaTeX
+% print -dpng -r400 degrau_Vc.png % para usuarios de Word
+print -depsc2 degrau_Vc.eps % para usuarios de LaTeX
 
 figure;
 plot(out.V.time, out.V.signals.values, 'LineWidth', 2);
@@ -90,7 +90,7 @@ xlabel('Tempo (s)', 'FontSize', 14);
 ylabel('V (V)', 'FontSize', 14);
 set(gca, 'FontSize', 14);
 grid on;
-print -dpng -r400 degrau_V.png % para usuarios de Word
-% print -depsc2 degrau_V.eps % para usuarios de LaTeX
+% print -dpng -r400 degrau_V.png % para usuarios de Word
+print -depsc2 degrau_V.eps % para usuarios de LaTeX
 
 end
