@@ -16,6 +16,14 @@ function controlador = projetarControladorPosicaoAnalitico(requisitos, planta)
 
 controlador.T = 1.0 / requisitos.fs;
 
-% Implementar
+xi = requisitos.PM/100;
+
+wn = requisitos.wb/(sqrt(1 - 2*xi^2 + sqrt(4*xi^4 - 4*xi^2 + 2)));
+
+controlador.Kp = wn^2 * planta.Jeq/planta.Kt/planta.N/planta.eta;
+
+controlador.Kd = (2*xi*wn * planta.Jeq - planta.Beq)/planta.Kt/planta.N/planta.eta;
+
+controlador.a = 10 * requisitos.wb;
 
 end
