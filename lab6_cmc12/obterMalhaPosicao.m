@@ -43,9 +43,12 @@ Cc = K*(Tl*s+1)/(s*(alpha*Tl*s+1));
 Ap = tf(NUMp,DENp);
 
 [NUMc,DENc] = pade(Tc/2,2);
-Ac = tf(NUMc,DENc);
+Nc = tf(NUMc,1);
+Dc = tf(1,DENc);
 
-Ga = Cp*Ap*Cc*(NUMc/DENc)*N*eta*Kt/(s*((Jeq*s+Beq)*(L*s+R+Cc*(NUMc/DENc))+N^2*Kt^2*eta));
+Ga = Cp*Ap*Cc*(Nc/Dc)*N*eta*Kt/(s*((Jeq*s+Beq)*(L*s+R+Cc*(Nc/Dc))+N^2*Kt^2*eta));
+Ga = minreal(Ga);
 Gf = feedback(Ga,1);
+Gf = minreal(Gf);
 
 end
