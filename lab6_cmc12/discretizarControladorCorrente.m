@@ -15,4 +15,8 @@ T = controlador.T;
 
 % Implementar
 
+Cc = K*(Tl*s+1)/(s*(alpha*Tl*s+1));
+
+ftd = c2d(Cc,T,'Tustin');
+
 end
