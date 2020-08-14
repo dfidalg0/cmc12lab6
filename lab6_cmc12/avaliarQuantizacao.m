@@ -54,8 +54,7 @@ xlabel('Tempo (s)', 'FontSize', 14);
 ylabel('\theta_l (rad)', 'FontSize', 14);
 set(gca, 'FontSize', 14);
 grid on;
-print -dpng -r400 quantizacao_thetal.png % para usuarios de Word
-% print -depsc2 quantizacao_thetal.eps % para usuarios de LaTeX
+print -depsc2 -r400quantizacao_thetal.eps % para usuarios de LaTeX
 
 figure;
 hold on;
@@ -70,7 +69,6 @@ xlabel('Tempo (s)', 'FontSize', 14);
 ylabel('\theta_m (rad)', 'FontSize', 14);
 set(gca, 'FontSize', 14);
 grid on;
-print -dpng -r400 quantizacao_thetam.png % para usuarios de Word
-% print -depsc2 quantizacao_thetam.eps % para usuarios de LaTeX
+print -depsc2 -r400 quantizacao_thetam.eps % para usuarios de LaTeX
 
 end
