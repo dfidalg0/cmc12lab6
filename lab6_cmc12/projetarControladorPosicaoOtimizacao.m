@@ -38,7 +38,7 @@ function J = custoControladorPosicao(requisitos, controladorCorrente, planta, pa
 
 controladorPosicao.Kp = parametros(1);
 controladorPosicao.Kd = parametros(2);
-controladorPosicao.a = wbReq * 10.0;
+controladorPosicao.a = requisitos.wb * 10.0;
 controladorPosicao.T = 1.0 / requisitos.fs;
 
 % Implementar
