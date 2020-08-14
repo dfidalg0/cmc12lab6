@@ -45,7 +45,7 @@ Ap = tf(NUMp,DENp);
 [NUMc,DENc] = pade(Tc/2,2);
 Ac = tf(NUMc,DENc);
 
-Ga = Cp*Ap*Cc*Ac*N*eta*Kt/(s*(Jeq*s+Beq)*(L*s+R+Cc*Ac)+N^2*Kt^2*eta);
+Ga = Cp*Ap*Cc*Ac*N*eta*Kt/(s*((Jeq*s+Beq)*(L*s+R+Cc*Ac)+N^2*Kt^2*eta));
 Gf = feedback(Ga,1);
 
 end
