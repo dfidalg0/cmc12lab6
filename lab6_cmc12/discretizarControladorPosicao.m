@@ -14,6 +14,7 @@ T = controlador.T;
 a = controlador.a;
 
 % Implementar
+s = tf('s');
 Cp = Kp + Kd*s*a/(s+a);
 ftd = c2d(Cp,T,'Tustin');
 end
