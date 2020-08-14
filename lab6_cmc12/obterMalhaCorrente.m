@@ -22,8 +22,8 @@ R = planta.R;
 
 C = K*(Tl*s+1)/(s*(alpha*Tl*s+1));
 G = 1/(L*s+R);
-[NUM,DEN] = pade(T,2);
-A = NUM/DEN;
+[num, den] = pade(T/2,2);
+A = tf(num, den);
 
 Ga = C*G*A;
 Ga = minreal(Ga);
